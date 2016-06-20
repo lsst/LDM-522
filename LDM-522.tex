@@ -3,7 +3,7 @@
 
 \subsection{Key Requirements}
 
-SQDA is a set of loosely coupled services intended to service LSST's quality assessement needs through all phases of Construction, Commissioning and Operations. Consumers of these services may include developers, facility staff, DAC (eg. L3) users, and the general LSST science user community. Use of these services is intended for routine characterisation, fault detection and fault diagnosis.
+SQDA is a set of loosely coupled services intended to service LSST's quality assessement needs through all phases of Construction, Commissioning and Operations. Consumers of these services may include developers, facility staff, DAC (e.g., L3) users, and the general LSST science user community. Use of these services is intended for routine characterisation, fault detection and fault diagnosis.
 
 \begin{itemize}
 \item SDQA shall provide sevices for science data quality analysis of Level 1, 2, and Calibration Processing pipelines.
@@ -36,10 +36,10 @@ SDQA system will provide a framework that is capable of monitoring QA
 information at four different stages of capability and maturity:
 
 \begin{itemize}
-\item QA Level 0 - Testing and Validation of the DM sub-system in pre-commissioning
-\item QA Level 1 - Real-time data quality and system assesment during commissioning + operations (also, forensics)
-\item QA Level 2 - Quality assessment of Data Releases (also, forensics)
-\item QA Level 3 - Ability for the community to evaluate the data quality of their own analyses. These should made available as well-documented and deployable versions of core QA Level 0--2 services.
+\item[QA Level 0] Testing and Validation of the DM sub-system in pre-commissioning
+\item[QA Level 1] Real-time data quality and system assesment during commissioning + operations (also, forensics)
+\item[QA Level 2] Quality assessment of Data Releases (also, forensics)
+\item[QA Level 3] Ability for the community to evaluate the data quality of their own analyses. These should made available as well-documented and deployable versions of core QA Level 0--2 services.
 \end{itemize}
 
 \begin{note}[Figure summarising QA key tasks]
@@ -154,7 +154,7 @@ Notes:
 
 \item A simple example of a ``factory'' analysis based on SQUASH is ``Calculate the astrometric repeatability on this dataset; display the trend; drill down to to show the historgram of the points that went into calculating this trend''.
 
-\item An advanced example of a bespoke analysis based on SQUASH is “Display a three-color diagram of the sources in this run; compute the width of point sources in the selected - eg. blue - part of the locus''
+\item An advanced example of a bespoke analysis based on SQUASH is “Display a three-color diagram of the sources in this run; compute the width of point sources in the selected -- e.g., blue -- part of the locus''
 
 \item SQUASH will likely expose results to the LSST Science User Interface for advanced interaction scenarios (both because of the SUI team's front-end expertise but also because they are likely to be similar to science-driven interactions in intent and in execution)
 
@@ -170,7 +170,7 @@ There are two distinct aspects to this capability:
 \begin{enumerate}
 \item Some metric products and services serve standalone user-driven use cases as in QA-0 but with additional data sources, such as the Engineering Facilities Database (EFD), and with real LSST data as opposed to simulated data or pre-cursor data sets.  An example use case is ``Show the width of point sources on data taken this week in windy conditions with all vents closed versus only the vents in the wind direction as a function of wind speed''.
 
-\item Some metric products are produced as part of the routine opreational processing for Level 1 and Calibration pipelines. These will predominantly use the production DM architecture at the DAC and produce metric products either through QA-specific steps in the processing or via the outputs of task instrumentation. An example use case is ``show the running
+\item Some metric products are produced as part of the routine opreational processing for Level 1 and Calibration pipelines. These will predominantly use the production DM architecture at the DAC and produce metric products either through QA-specific steps in the processing or via the outputs of task instrumentation. An example use case is ``show the running {\bf XYZ}''
 
 \end{enumerate}
 
@@ -221,15 +221,15 @@ qualititatively suitable for QA-1. However:
 \paragraph{Dome / Operator Displays}
 \label{sec:qaDomeDisplay}
 
-Some QA displays may be useful as ``comfort displays'' (or ``facility heartbeats'') to staff on site at the telescope, or remote operators. These may require interfaces to data that within the DM system is handled by Data Access Services. If that is the case, this work will be provided from a non-DM (Commissioning) WBS.
+Some QA displays may be useful as ``comfort displays'' (or ``facility heartbeats'') to staff on site at the telescope, or remote operators.  These may require interfaces to data that within the DM system is handled by Data Access Services.  If that is the case, this work will be provided from a non-DM (Commissioning) WBS.
 
 \paragraph{Telescope Systems}
 \label{sec:qaTelescopeSystem}
 
 Outputs of the SQQA system may be required by the Observatory Control
-System in order to take some automated action (eg. reschedule a
+System in order to take some automated action (e.g., reschedule a
 field). An API will be provided if there is a requirement not already
-covered by Data Access Services, or DAX may need to be extended to support that access (in the latter case, out of the (02C.06 WBS)
+covered by Data Access Services, or DAX may need to be extended to support that access (in the latter case, out of the (02C.06 WBS))
 
 \paragraph{Camera Calibration}
 \label{sec:qaTelescopeSystem}
@@ -240,20 +240,22 @@ The SDAQ system will also provide QA of Calibration images and products.
 
 \item Images taken from the Camera will require ``prompt QA'' that will run in the quasi-real-time image processing system. Camera is interested in the monitoring infrastructure of SDQA for tracking parameters such as read noice, cross-talk, linearity etc.
 
-\item QA of Calibration Products Production data products (i.e. master calibration images and calibration database entries). These are similar in architecture and implementation to other DRP-related tests
+\item QA of Calibration Products Production data products (i.e., master calibration images and calibration database entries). These are similar in architecture and implementation to other DRP-related tests
 
 \item The one exception to the above is the daily daytime/twilight calibration operations prior to night-time observing. QA done for this calibration sequence needs to run under Obsetvatory Control System. There is therefore an explicit or perhaps implicit interface to the OCS that is yet to be specified.
 
 [I am still unclear as to whether these are all the calibrations we are talking about - I get the dome flats, what about things produced by the spectrometer, the data reconstituted from the lasers etc? - FE]
 
+\end{itemize}
+
 \paragraph{Engineering and Commissioning}
 
-Some data that is taken specifically for engineering or commissioning purposes will require custom treatment (eg. an image that is taken with deliberately defocussed optics should not trigger QA alarm and instead should have the noted characteristics of the defocussed sources analysed). While architecturally these are the same as other QA tests, the scope and work for this will be defined as part of the Systems Engineering WBS.
+Some data that is taken specifically for engineering or commissioning purposes will require custom treatment (e.g., an image that is taken with deliberately defocussed optics should not trigger QA alarm and instead should have the noted characteristics of the defocussed sources analysed). While architecturally these are the same as other QA tests, the scope and work for this will be defined as part of the Systems Engineering WBS.
 
 \subsubsection{QA2}
 QA-2 designates the capability to assess the periodic Data Release Products that will be published by LSST.  The key aspects that will add on to QA-1 capabilities are (1) the ability to quickly analyze and inspect large data sets; (2) identify failure modes (excursions from expectation or specification) that are rare in QA-0 analysis or real-time QA-1 processing, but represent an identifiable and systematic population or effect on the scale of a full Data Release; and (3) closely interface with calibration efforts in support of the stringent relative color calibration requirements.
 
-In brief, the main focus of QA2 will be to assess the quality of data releases (including the co-added image data products); performing quality assessment for astrometric and photometric calibration and derived products; and look for problems with the image processing pipelines and systematic problems with the instrument.
+In brief, the main focus of QA2 will be to (1) assess the quality of data releases (including the co-added image data products); (2) perform quality assessment for astrometric and photometric calibration and derived products; (3) and look for problems with the image processing pipelines and systematic problems with the instrument.
 
 In addition to the components provided in QA-0, and QA-1, the new components for QA-2 are:
 
@@ -270,7 +272,7 @@ In addition to the components provided in QA-0, and QA-1, the new components for
 Understanding, assuring, and investigating data quality issues will require tight tracking of provenance tracking, particularly as different post-pixel-processing modules may be swapped for each other: e.g., photometric calibration calculations, references catalogs, etc.
 
 
-\paragraph{ Interfaces to Workflow and Provenance System(s)}
+\paragraph{Interfaces to Workflow and Provenance System(s)}
 \label{sec:qaOutputInterfaceWorkflowSystem}
 
 If the SDQA system determines that a data (whether science or calibration) is defective, it provides all the information required for the worflow system to take action on this information.
@@ -279,7 +281,7 @@ A simple example of this is that a calibration is bad, and it needs to be marked
 
 A more complex implementation is that a data product previously thought to be good is on futher processing or new tests determined to be bad. In this case will be combined with provenance information to mark *all* data polluted with the bad frame as bad, and provide sufficient information to the workflow system to allow it to trigger the necessary reprocessing with that data excluded.
 
-These are implemented in a manner that is agnostic as to the implementation of the Workflow (eg. they are values in a database table or API methods that different workflow systems can utilize).
+These are implemented in a manner that is agnostic as to the implementation of the Workflow (e.g., they are values in a database table or API methods that different workflow systems can utilize).
 
 In order to support the interface to the provenance system it would be useful to have some provenance analysis tools, that will allow an operator to query speficially what data went into a particular data product or used a specific data product. These would be very useful to QA but will be provided by the Data Access Services WBS (02C.06).
 
@@ -331,7 +333,7 @@ The design of these workflows is out of scope for the this document, which is fo
 
 \begin{enumerate}
 
-\item Capabilities that involve structure pre-defined high-semantics displays (eg. dashboards) with fixed drill-down workflows. These will be serviced by the QA system, specifically the Science Quality Analysis Harness interactive dashboards.
+\item Capabilities that involve structure pre-defined high-semantics displays (e.g., dashboards) with fixed drill-down workflows. These will be serviced by the QA system, specifically the Science Quality Analysis Harness interactive dashboards.
 
 \item Capabilities that are similar to science-user workflows in that they involve generic free-form exploration of the dataset. These will be serviced through the Science User Interface through the Science User Interface Data Analysis and Visualization Tools WBS (02C.05.02), with the Data Access services acting as interface between the SUI and SDAQ. This is partly to leverage the superior features of the SUI system, and partly to encourage early in-house testing of the SUI features.
 
@@ -341,7 +343,7 @@ The design of these workflows is out of scope for the this document, which is fo
 
 \end{enumerate}
 
-\subsubsection{Who validates the validator?
+\subsubsection{Who validates the validator?}
 \label{sec:qaSelfValidation}
 
 It should be apparent from the above that the QA sevices, while not a critical component in operational terms, nevertheless comprise a system of high semantic value to multiple audiences - dome operators, software developers, science operations staff, data release production engineers and science consumers. Therefore care must be taken to design into the system sanity self-checks to ensure the reliability of its own resuls as well as its upstream pipelines. This section outlines some of the planned features in this area:
