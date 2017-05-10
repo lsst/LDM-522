@@ -1,7 +1,18 @@
-\section{Science Data Quality Assurance}
-\label{sec:sdqa}
+\documentclass[DM,toc,lsstdraft]{lsstdoc}
 
-\subsection{Overview of SDQA}
+\title{Science Data Quality Assurance System Conceptual Design}
+\author{Frossie Economou and Michael Wood-Vasey}
+\date{\today}
+\setDocRef{LDM-522}
+
+\setDocAbstract{
+
+}
+
+\begin{document}
+\maketitle
+
+\section{Overview of SDQA}
 
 Science Data Quality Assurance (SDQA) describes a collection of
 capabilities for Quality Analysis (QA) and Quality Control (QC) that
@@ -15,19 +26,19 @@ users, and the general LSST science user community.
 SDQA capabilities can be divided into Quality Analysis (QA) and
 Quality Control (QC) Capabilities.
 
-\subsubsection{Quality Analysis (QA)}
+\subsection{Quality Analysis (QA)}
 
 Quality Analysis describes a range of \emph{activities} aimed at understanding the algorithmic performance of the code and eventually the properties of the data. These are achieved by a set of \emph{tools} that leverage components of the Data Management subsystem, as well as additional capabilities as necessary, to allow for the scientific inspection of data both by DM developers and scientists during construction as well as commissioning engineers and scientists during commissioning and operations.
 
 QA activities include processing, analysing and inspecting data for forensic purposes. They also include the development of tests for verifying and characterising algorithmic performance, and are closely tied to the development of the Science Pipelines and the Science User Interface.
 
-\subsubsection{Quality Control (QC)}
+\subsection{Quality Control (QC)}
 
 Quality Control describes a range of \emph{services and processes} aimed at measuring and monitoring and characterising the system (both software and data) to verify and characterise its performance. Whereas Quality Assurance describes the activities of people, Quality Control describes systems running autonomously and only notify people when an anomaly that cannot be automatically rectified is detected.
 
 QC services include regression detection, measurement of Key Performance Metrics, a notification infrastructure and quality monitor dashboards. They are primarily the responsibility of the Science Quality and Reliability Engineering (SQuaRE) team.
 
-\subsection{Key Features of SDQA (QA and QC) systems}
+\section{Key Features of SDQA (QA and QC) systems}
 
 \begin{itemize}
 \item SDQA provides capabilities for science data quality analysis of Level 1, 2, and Calibration Processing pipelines.
@@ -52,7 +63,7 @@ QC services include regression detection, measurement of Key Performance Metrics
 
 \end{itemize}
 
-\subsection{Key Tasks for Each Tier of QC}
+\section{Key Tasks for Each Tier of QC}
 
 SDQA system provides a framework that is capable of monitoring QC information at four different stages of capability and maturity:
 
@@ -67,20 +78,20 @@ A view of the tiered QC services is shown in \ref{fig:qa-overview}. Capabilities
 
 \begin{figure}
 \centering
-\includegraphics[width=\textwidth]{figures/qa_services.png}
+\includegraphics[width=\textwidth]{qa_services}
 \caption{Layer of progressive QC capabilities across all 4 tiers of QC.
 \label{fig:qa-overview}}
 \end{figure}
 
 
 
-\subsubsection{QC Tier 0}
+\subsection{QC Tier 0}
 
 The first step to good quality data is good quality software. The purpose of QC-0 services is to enable testing of the DM software during development as well as validate software improvements during commissioning and operations, quantifying the software performance against known and/or expected inputs and outputs.
 
 The core capabilities of QC-0 services are:
 
-\paragraph{Continuous Integration Services}
+\subsubsection{Continuous Integration Services}
 \label{sec:qaCI}
 \begin{itemize}
 
@@ -92,7 +103,7 @@ The core capabilities of QC-0 services are:
 
 \end{itemize}
 
-\paragraph{Test Execution Harness}
+\subsubsection{Test Execution Harness}
 \label{sec:qaTestharness}
 \begin{itemize}
 
@@ -103,17 +114,17 @@ The core capabilities of QC-0 services are:
   without manual intervention, for example by checking in code or a
   specification in a purpose built test repository.
 
-\item The test execution harness also allows the selection of a number of appropriate reference datasets (see \ref{sec:qaCurateddata}
+\item The test execution harness also allows the selection of a number of appropriate reference datasets (see \ref{sec:qaCurateddata}).
 
 \item Results from such tests are exposed in such a way as to allow summary reports and meaningful failure notifications.
 
 \end{itemize}
 
-\paragraph{Verification Metrics Code}
+\subsubsection{Verification Metrics Code}
 \label{sec:qaVerify}
 \begin{itemize}
 
-\item During Construction, progress towards meeting DM subsystem requirements revolve around the Key Performance Metrics (KPMs) outlined in \citeds{LDM-240}. SDQA implements code to calculate these KPMs. Consult \emph{reference to KPM Verification document} for a list of those metrics and how (and by whom and on what) they will be calculated.
+\item During Construction, progress towards meeting DM subsystem requirements revolve around the Key Performance Metrics (KPMs) outlined in \citeds{LDM-240}. SDQA implements code to calculate these KPMs. Consult \citeds{LDM-502} for a list of those metrics and how (and by whom and on what) they will be calculated.
 
 \item Additional metrics must be calculated to be met in order for the DM subsystem to demonstrate its operational readiness. The list of those metrics and how (and by whom) they will be calculated will be in \emph{reference to DM Verification Plan CoDR document}. In terms of QC infrastructure, these metrics will not require different capabilities than the KPMs.
 
@@ -123,7 +134,7 @@ The core capabilities of QC-0 services are:
 
 \end{itemize}
 
-\paragraph{Computational Metrics}
+\subsubsection{Computational Metrics}
 \label{sec:qaComputational}
 \begin{itemize}
 
@@ -139,7 +150,7 @@ The core capabilities of QC-0 services are:
 
 \end{itemize}
 
-\paragraph{Curated Datasets}
+\subsubsection{Curated Datasets}
 \label{sec:qaCurateddata}
 \begin{itemize}
 
@@ -152,7 +163,7 @@ The core capabilities of QC-0 services are:
 \end{itemize}
 
 
-\paragraph{SQUASH - Science Quality Analysis Harness}
+\subsubsection{SQUASH - Science Quality Analysis Harness}
 \label{sec:qaSquash}
 
 SQUASH is a QC-as-a-service architecture that comprises the following elements:
@@ -183,7 +194,7 @@ Notes:
 
 \end{itemize}
 
-\subsubsection{QC Tier 1}
+\subsection{QC Tier 1}
 
 QC-1 designates the capability to assess data quality in real-time observing scenarios such as integration, commissioning and operations (as well as data release production); if the role of QC-0 is to validate the software, the role of QC-1 is to validate the performance of the facility.
 
@@ -204,7 +215,7 @@ Note that the EFD is specified to hold all telemetry generated by any observator
 
 All QC-0 components will be involved in QC-1 workflows. The following additional components originate from QC-1 requirements:
 
-\paragraph{Alert QC}
+\subsubsection{Alert QC}
 \label{sec:qaAlertQA}
 
 There are two QC components developed for Alert Production:
@@ -223,7 +234,7 @@ There are two QC components developed for Alert Production:
 
 \end{itemize}
 
-\paragraph{Validation Metrics Performance}
+\subsubsection{Validation Metrics Performance}
 \label{sec:qaPerfValidate}
 
 As noted, the components of QC-0 to devise key metrics are qualitatively suitable for QC-1. However:
@@ -236,17 +247,17 @@ As noted, the components of QC-0 to devise key metrics are qualitatively suitabl
 
 \end{itemize}
 
-\paragraph{Dome / Operator Displays}
+\subsubsection{Dome / Operator Displays}
 \label{sec:qaDomeDisplay}
 
 Some QC displays may be useful as ``comfort displays'' (or ``facility heartbeats'') to staff on site at the telescope, or remote operators. If the design of the control room requires displays that could not be generated from the DM-required SQuaSH capabilities, this work will be provided from a non-DM (Commissioning) WBS.
 
-\paragraph{Telescope Systems}
+\subsubsection{Telescope Systems}
 \label{sec:qaTelescopeSystem}
 
 Outputs of the SQQA system may be required by the Observatory Control System in order to take some automated action (e.g., reschedule a field). Whatever information is required will be published as telemetry by means of the OCS Middleware.
 
-\paragraph{Camera Calibration}
+\subsubsection{Camera Calibration}
 \label{sec:qaCameraCalibration}
 
 The SDQA system will also provide QC of Calibration images and products.
@@ -261,15 +272,15 @@ The SDQA system will also provide QC of Calibration images and products.
 
 \end{itemize}
 
-\paragraph{Engineering and Commissioning}
+\subsubsection{Engineering and Commissioning}
 
 Some data that is taken specifically for engineering or commissioning purposes will require custom treatment (e.g., an image that is taken with deliberately defocussed optics should not trigger QC alarm and instead should have the noted characteristics of the defocussed sources analysed). While architecturally these are the same as other QC tests, the scope and work for this will be defined as part of the Systems Engineering WBS.
 
-\paragraph{Data Release Production}
+\subsubsection{Data Release Production}
 
 The daily progress of DRP is characteristically similar that of AP and will be instrumented and monitored by SDQA in the same way.
 
-\subsubsection{QC Tier 2}
+\subsection{QC Tier 2}
 
 QC-2 designates the capability to assess the periodic Data Release Products that will be published by LSST.  The key aspects that will add on to QC-1 capabilities are:
 
@@ -287,7 +298,7 @@ The principal focus of QC-2 is to assess the quality of catalogue and image data
 
 In addition to the components provided in QC-0, and QC-1, the new components for QC-2 are:
 
-\paragraph{DRP-specific dataset}
+\subsubsection{DRP-specific dataset}
 \label{sec:qaDrpDataset}
 \begin{itemize}
 \item The scale of a DRP will impose additional performance requirements on the calculation of key performance metrics and associated quality metrics.
@@ -295,7 +306,7 @@ In addition to the components provided in QC-0, and QC-1, the new components for
 \end{itemize}
 
 
-\paragraph{Interfaces to Workflow and Provenance System(s)}
+\subsubsection{Interfaces to Workflow and Provenance System(s)}
 \label{sec:qaOutputInterfaceWorkflowSystem}
 
 If the SDQA system determines that data (whether science or calibration) is defective, it provides all the information required for the workflow system to take action on this information.
@@ -308,30 +319,32 @@ These are implemented in a manner that is agnostic as to the implementation of t
 
 In order to support the interface to the provenance system it would be useful to have some provenance analysis tools, that will allow an operator to query specifically what data went into a particular data product or used a specific data product. These would be very useful to QC but will be provided by the Data Access Services WBS (02C.06).
 
-\emph{[@KT - who deals wih the bad data system?]}
+\begin{note}
+KT - who deals wih the bad data system?
+\end{note}
 
-\paragraph{Output Interface to Science Pipelines}
+\subsubsection{Output Interface to Science Pipelines}
 \label{sec:qaOutputInterfaceSciencePipelines}
 
 QA results may provide key feedback to model and parameter choices in the Science Pipelines.  The result of the QC system should be made available to the Science Pipelines processing in clearly-tracked analysis and provenance via the normal pipeline Data Access Services.
 
-\paragraph{Comparison tools for overlap areas due to satellite processing}
+\subsubsection{Comparison tools for overlap areas due to satellite processing}
 \label{sec:qaComparisonSatelliteDataCenters}
 
 Data Release Processing may be distributed across multiple geographic data centers.  It is important to verify consistency (identity even) of the results across these data centers by analyzing both subsets of the overall data processing that are processed redundantly by each data center. A framework to define the splits and overlap region and a coherent dashboard and QC configuration to analyze these overlap regions will be key in building confidence in the merged Data Release.
 
-\paragraph{Metrics/products for science users to understand quality of science data products (depth mask/selection function, etc.)}
+\subsubsection{Metrics/products for science users to understand quality of science data products (depth mask/selection function, etc.)}
 \label{sec:qaScienceUsersMetrics}
 
 The Data Release Processing should generate statistics of depth, typical seeing, etc. for regions of the sky; as well as selection functions for the sensitivity to various types of objects.  The code to produce those statistics will need to be validated by processing of well-understood data.
 
-\paragraph{Characterization report for Data Release}
+\subsubsection{Characterization report for Data Release}
 \label{sec:qaCharacterizationReportDrp}
 \begin{itemize}
 \item Each Data Release will be accompanied by a detailed description of its key data statistics, coverage, and quality metrics.
 \end{itemize}
 
-\subsubsection{QC Tier 3}
+\subsection{QC Tier 3}
 \label{sec:qaQA3}
 
 Data quality services will be made available for use with science analysis performed by the LSST Science Collaborations and the community. Tier 0--2 visualization and data exploration tools will be made available (either as a service or as documented deployable systems) to the community.
@@ -339,7 +352,7 @@ Data quality services will be made available for use with science analysis perfo
 As community-driven data processing is not fully specified at this point, further requirements of SDQA for L3 will be included in the Level 3 requirements and design documentation.
 
 
-\subsubsection{Quality Analysis}
+\subsection{Quality Analysis}
 \label{sec:qaInteractiveVis}
 
 Interactive visualisation and free-form data exploration are critical parts of scientific and engineering insight, and for a system the size of LSST it cannot be effectively done on a developer's laptop and/or using traditional tooling. It follows that for the QA process to happen effectively, more powerful tooling will be necessary to support discovery workflows.
@@ -356,11 +369,11 @@ The design of these workflows is out of scope for the this document, which is fo
 
 \item A more complex case is the situation where curated pre-defined display is desired, but free-form generic exploration of the results is required. In this situation, QC will have an API or facility for exporting the former into a tool suitable for the latter. One example of this would be a QC report on, say, a standardised KPM measurement that is produced as a Jupyter Notebook; the user can inspect it, or take it and further interact with the results. Further design is underway in this area.
 
-\item In some cases specific algorithms need to be implemented to drive required visualization scenarios; these are provided as part of the Alert Production (02C.03) or Data Release Production (02C.04) as appropriate. An example of this is N-way matching across multiple visits (\ref{sec:spTablesNWayMatching}).
+\item In some cases specific algorithms need to be implemented to drive required visualization scenarios; these are provided as part of the Alert Production (02C.03) or Data Release Production (02C.04) as appropriate. An example of this is N-way matching across multiple visits \citedsp{LDM-151}.
 
 \end{enumerate}
 
-\subsubsection{Who validates the validator?}
+\subsection{Who validates the validator?}
 \label{sec:qaSelfValidation}
 
 SDQA comprises of a system of high semantic value to multiple
@@ -371,14 +384,18 @@ sanity self-checks to ensure the reliability of its own resuls as well
 as its upstream pipelines. This section outlines some of the planned
 features in this area:
 
-\paragraph{Intrinsic Design Features}
+\subsubsection{Intrinsic Design Features}
 
 Many of the features described so far provide an alert path for misbehaviours of the QC system. For example a trending excursion for a specific key performance metric could either be due to an algorithmic error or a validation code error. Either way, detection will be a necessary first step to investigation.
 
-\paragraph{Known Truth}
+\subsubsection{Known Truth}
 
 While it may be a matter of debate as to how accurate construction-era simulations are compared to the eventual on-sky data, they are extremely valuable as a fixed source of ``known truth'' which allow for algorithmically simple QC tests that result in quantifiable performance.
 
-\paragraph{Reference Truth}
+\subsubsection{Reference Truth}
 
 Comm Cam may allow us to early on develop a small library of representative ``reference fields'' (eg at different galactic latitudes or ecliptic planes) to provide a minimal standard dataset against which competing algorithmic approaches can be compared (this is similar to the approach taken in Construction with percursor datasets). There would be made available outside the project too alloweing groups working on alternative algoritms and/or implementations to compare their results with the ``factory'' reductions. Finally, the possibility exists that these reference fields could be unencumbered by proprietary periods so that scientific groups without data rights (and perhaps not even interested in LSST per se) could also utilise them for algorithmic and/or software development.
+
+\bibliography{lsst}
+
+\end{document}
