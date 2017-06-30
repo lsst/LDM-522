@@ -55,7 +55,7 @@ QC services include regression detection, measurement of Key Performance Metrics
 
 \item SDQA is able to collect and harvest the outputs and logs of execution of a pipeline, and extract and expose metrics from these logs.
 
-\item SQDA makes provision to store outputs that are not stored through other LSST data access services.
+\item SDQA makes provision to store outputs that are not stored through other LSST data access services.
 
 \item SDQA is deployable as high-reliability scalable services for production as well as allow for core data assessment functionality to be executed on a developer's local machine.
 
@@ -69,7 +69,7 @@ SDQA system provides a framework that is capable of monitoring QC information at
 
 \begin{itemize}
 \item[QC Tier 0] Testing and Validation of the DM sub-system during software development
-\item[QC Tier 1] Real-time data quality and system assesment during commissioning and operations (also, forensics)
+\item[QC Tier 1] Real-time data quality and system assessment during commissioning and operations (also, forensics)
 \item[QC Tier 2] Quality assessment of Data Releases (also, forensics)
 \item[QC Tier 3] Ability for the community to evaluate the data quality of their own analyses. These should made available as well-documented and deployable versions of core QC Tier 0--2 services.
 \end{itemize}
@@ -120,11 +120,12 @@ The core capabilities of QC-0 services are:
 
 \end{itemize}
 
-\subsubsection{Verification Metrics Code}
+\subsubsection{KPM Metrics Code}
 \label{sec:qaVerify}
 \begin{itemize}
+	\item \citeds{LDM-503} defines the verification approach for DM of which part is to measure Key Performance Metrics (KPMs).
 
-\item During Construction, progress towards meeting DM subsystem requirements revolve around the Key Performance Metrics (KPMs) outlined in \citeds{LDM-240}. SDQA implements code to calculate these KPMs. Consult \citeds{LDM-502} for a list of those metrics and how (and by whom and on what) they will be calculated.
+\item The Key Performance Metrics (KPMs) are outlined in \citeds{LDM-240}. SDQA implements code to calculate these KPMs. Consult \citeds{LDM-502} for a list of those metrics and how (and by whom and on what) they will be calculated.
 
 \item Additional metrics must be calculated to be met in order for the DM subsystem to demonstrate its operational readiness. The list of those metrics and how (and by whom) they will be calculated will be in \emph{reference to DM Verification Plan CoDR document}. In terms of QC infrastructure, these metrics will not require different capabilities than the KPMs.
 
@@ -250,7 +251,7 @@ As noted, the components of QC-0 to devise key metrics are qualitatively suitabl
 \subsubsection{Dome / Operator Displays}
 \label{sec:qaDomeDisplay}
 
-Some QC displays may be useful as ``comfort displays'' (or ``facility heartbeats'') to staff on site at the telescope, or remote operators. If the design of the control room requires displays that could not be generated from the DM-required SQuaSH capabilities, this work will be provided from a non-DM (Commissioning) WBS.
+Some QC displays may be useful as ``comfort displays'' (or ``facility heartbeats'') to staff on site at the telescope, or remote operators. If the design of the control room requires displays that could not be generated from the DM-required Squash capabilities, this work will be provided from a non-DM (Commissioning) WBS.
 
 \subsubsection{Telescope Systems}
 \label{sec:qaTelescopeSystem}
