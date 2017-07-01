@@ -169,10 +169,10 @@ The core capabilities of QC-0 services are:
 \end{itemize}
 
 
-\subsubsection{SQUASH - Science Quality Analysis Harness}
+\subsubsection{SQuAsH -- Science Quality Analysis Harness}
 \label{sec:qaSquash}
 
-SQUASH is a QC-as-a-service architecture that comprises the following elements:
+Squash is a QC-as-a-service architecture that comprises the following elements:
 
 \begin{enumerate}
 
@@ -190,13 +190,13 @@ Notes:
 
 \begin{itemize}
 
-\item As construction progresses, first-party DM systems to underwrite the functions of SQUASH will become production ready. In the meantime, basic implementations of minimum viable functionality may be done with boostrap or off-the-shelf solutions either as an interim measure or, in some cases, a more lightweight solution (for example, working around features the butler does not have yet).
+\item As construction progresses, first-party DM systems to underwrite the functions of Squash will become production ready. In the meantime, basic implementations of minimum viable functionality may be done with boostrap or off-the-shelf solutions either as an interim measure or, in some cases, a more lightweight solution (for example, working around features the butler does not have yet).
 
-\item A simple example of a ``factory'' analysis based on SQUASH is ``Calculate the astrometric repeatability on this dataset; display the trend; drill down to to show the histogram of the points that went into calculating this trend''.
+\item A simple example of a ``factory'' analysis based on Squash is ``Calculate the astrometric repeatability on this dataset; display the trend; drill down to to show the histogram of the points that went into calculating this trend''.
 
-\item An advanced example of a bespoke analysis based on SQUASH is ``Display a three-color diagram of the sources in this run; compute the width of point sources in the selected -- e.g., blue -- part of the locus''.
+\item An advanced example of a bespoke analysis based on Squash is ``Display a three-color diagram of the sources in this run; compute the width of point sources in the selected -- e.g., blue -- part of the locus''.
 
-\item SQUASH will likely expose results to the LSST Science User Interface and Tools (SUIT) for advanced interaction scenarios (both because of the SUIT team's front-end expertise but also because they are likely to be similar to science-driven interactions in intent and in execution). See \ref{sec:qaInteractiveVis}
+\item Squash will likely expose results to the LSST Science User Interface and Tools (SUIT) for advanced interaction scenarios (both because of the SUIT team's front-end expertise but also because they are likely to be similar to science-driven interactions in intent and in execution). See \ref{sec:qaInteractiveVis}
 
 \end{itemize}
 
@@ -326,7 +326,7 @@ These are implemented in a manner that is agnostic as to the implementation of t
 In order to support the interface to the provenance system it would be useful to have some provenance analysis tools, that will allow an operator to query specifically what data went into a particular data product or used a specific data product. These would be very useful to QC but will be provided by the Data Access Services WBS (02C.06).
 
 \begin{note}
-KT - who deals wih the bad data system?
+KT -- who deals wih the bad data system?
 \end{note}
 
 \subsubsection{Output Interface to Science Pipelines}
@@ -383,7 +383,7 @@ The design of these workflows is out of scope for the this document, which is fo
 \label{sec:qaSelfValidation}
 
 SDQA comprises of a system of high semantic value to multiple
-audiences - dome operators, software developers, science operations
+audiences -- dome operators, software developers, science operations
 staff, data release production engineers and science
 consumers. Therefore care must be taken to design into the system
 sanity self-checks to ensure the reliability of its own resuls as well
